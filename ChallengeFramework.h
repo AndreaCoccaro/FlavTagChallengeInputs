@@ -75,14 +75,35 @@ public :
   float m_jet_mv2c20;
 
   // track info
+  int m_jet_ip3d_ntrk;
+
   std::vector<float> *m_jet_trk_pt;
   std::vector<float> *m_jet_trk_phi;
+  std::vector<float> *m_jet_trk_eta;
+  std::vector<float> *m_jet_trk_d0;
+  std::vector<float> *m_jet_trk_z0;
+  std::vector<float> *m_jet_trk_ip3d_d0sig;
+  std::vector<float> *m_jet_trk_ip3d_z0sig;
+
+  std::vector<float> *m_jet_trk_chi2;
+
+  std::vector<int> *m_jet_trk_nInnHits;
+  std::vector<int> *m_jet_trk_nNextToInnHits;
+  std::vector<int> *m_jet_trk_nBLHits;
+  std::vector<int> *m_jet_trk_nsharedBLHits;
+  std::vector<int> *m_jet_trk_nsplitBLHits;
+  std::vector<int> *m_jet_trk_nPixHits;
+  std::vector<int> *m_jet_trk_nsharedPixHits;
+  std::vector<int> *m_jet_trk_nsplitPixHits;
+  std::vector<int> *m_jet_trk_nSCTHits;
+  std::vector<int> *m_jet_trk_nsharedSCTHits;
+  std::vector<int> *m_jet_trk_expectBLayerHit;
 
   void clear();
 
   TTree          *fChain;   //!pointer to the analyzed TTree or TChain
 
-// Fixed size dimensions of array or collections stored in the TTree if any.
+  // Fixed size dimensions of array or collections stored in the TTree if any.
 
    // Declaration of leaf types
    Int_t           runnb;

@@ -1,5 +1,5 @@
 {
-  int counter=3;
+  int counter=0;
 
   TChain ch("bTag_AntiKt4EMTopoJets");
 
