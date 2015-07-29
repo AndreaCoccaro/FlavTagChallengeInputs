@@ -70,8 +70,6 @@ public :
   float m_jet_phi;
 
   //* MV2 outputs
-  float m_jet_mv2c00;
-  float m_jet_mv2c10;
   float m_jet_mv2c20;
 
   // track info

@@ -121,9 +121,7 @@ void ChallengeFramework::Begin(TTree * /*tree*/) {
   tree->Branch("jet_trk_nsharedSCTHits",&m_jet_trk_nsharedSCTHits);
   tree->Branch("jet_trk_expectBLayerHit",&m_jet_trk_expectBLayerHit);
 
-  // MV20 outputs
-  tree->Branch("jet_mv2c00",&m_jet_mv2c00);
-  tree->Branch("jet_mv2c10",&m_jet_mv2c10);
+  // MV20 output
   tree->Branch("jet_mv2c20",&m_jet_mv2c20);
 }
 
@@ -196,8 +194,6 @@ Bool_t ChallengeFramework::Process(Long64_t entry) {
   b_jet_trk_nsharedSCTHits->GetEntry(entry);
   b_jet_trk_expectBLayerHit->GetEntry(entry);
 
-  b_jet_mv2c00->GetEntry(entry);
-  b_jet_mv2c10->GetEntry(entry);
   b_jet_mv2c20->GetEntry(entry);
 
   n_events++;
@@ -270,8 +266,6 @@ Bool_t ChallengeFramework::Process(Long64_t entry) {
     m_jet_eta = jet_eta->at(i);
     m_jet_phi = jet_phi->at(i);
 
-    m_jet_mv2c00 = jet_mv2c00->at(i);
-    m_jet_mv2c10 = jet_mv2c10->at(i);
     m_jet_mv2c20 = jet_mv2c20->at(i);
 
     m_jet_ip3d_ntrk = jet_ip3d_ntrk->at(i);
