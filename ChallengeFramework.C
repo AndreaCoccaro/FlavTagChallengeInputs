@@ -224,7 +224,7 @@ Bool_t ChallengeFramework::Process(Long64_t entry) {
 
     if(fabs(jet_eta->at(i))>2.5) continue;
     if(jet_pt->at(i)<20000) continue;
-    if(jet_JVT->at(i)<0.641) continue;
+    if(jet_JVT->at(i)<0.641 && jet_pt->at(i)<50000) continue;
     if(fabs(truth_PVz-PVz) > 0.5) continue;
 
     m_jet_truthflav = jet_truthflav->at(i);
