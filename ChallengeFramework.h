@@ -84,6 +84,7 @@ public :
   std::vector<float> *m_jet_trk_ip3d_z0sig;
 
   std::vector<float> *m_jet_trk_chi2;
+  std::vector<float> *m_jet_trk_orig;
 
   std::vector<int> *m_jet_trk_nInnHits;
   std::vector<int> *m_jet_trk_nNextToInnHits;

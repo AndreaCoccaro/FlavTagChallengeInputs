@@ -4,10 +4,6 @@
 #include <TH2.h>
 #include <TStyle.h>
 
-//#ifdef __MAKECINT__
-//#pragma link C++ class vector<float>+;
-//#endif
-
 using namespace std;
 
 void ChallengeFramework::Begin(TTree * /*tree*/) {
@@ -30,7 +26,7 @@ void ChallengeFramework::Begin(TTree * /*tree*/) {
   }
   file.close();
 
-  TString outputName = "inputChallenge_mc15_13TeV_410000_0"+str2+"_v1";
+  TString outputName = "inputChallenge_mc15_13TeV_410000_0"+str2+"_v2";
 
   output = new TFile(outputName+".root","RECREATE");
   std::cout << "output ROOT file " << outputName << std::endl;
@@ -48,6 +44,7 @@ void ChallengeFramework::Begin(TTree * /*tree*/) {
   m_jet_trk_ip3d_z0sig = new std::vector<float>();
 
   m_jet_trk_chi2 = new std::vector<float>();
+  m_jet_trk_orig = new std::vector<float>();
 
   m_jet_trk_nInnHits = new std::vector<int>();
   m_jet_trk_nNextToInnHits = new std::vector<int>();
@@ -107,7 +104,8 @@ void ChallengeFramework::Begin(TTree * /*tree*/) {
   tree->Branch("jet_trk_d0sig",&m_jet_trk_ip3d_d0sig);
   tree->Branch("jet_trk_z0sig",&m_jet_trk_ip3d_z0sig);
 
-  tree->Branch("jet_trk_phi",&m_jet_trk_chi2);
+  tree->Branch("jet_trk_chi2",&m_jet_trk_chi2);
+  tree->Branch("jet_trk_orig",&m_jet_trk_orig);
 
   tree->Branch("jet_trk_nInnHits",&m_jet_trk_nInnHits);
   tree->Branch("jet_trk_nNextToInnHits",&m_jet_trk_nNextToInnHits);
@@ -181,6 +179,7 @@ Bool_t ChallengeFramework::Process(Long64_t entry) {
   b_jet_trk_ip3d_z0sig->GetEntry(entry);
 
   b_jet_trk_chi2->GetEntry(entry);
+  b_jet_trk_orig->GetEntry(entry);
 
   b_jet_trk_nInnHits->GetEntry(entry);
   b_jet_trk_nNextToInnHits->GetEntry(entry);
@@ -283,6 +282,7 @@ Bool_t ChallengeFramework::Process(Long64_t entry) {
       m_jet_trk_ip3d_z0sig->push_back((jet_trk_ip3d_z0sig->at(i)).at(j));
 
       m_jet_trk_chi2->push_back((jet_trk_chi2->at(i)).at(j));
+      m_jet_trk_orig->push_back((jet_trk_orig->at(i)).at(j));
 
       m_jet_trk_nInnHits->push_back((jet_trk_nInnHits->at(i)).at(j));
       m_jet_trk_nNextToInnHits->push_back((jet_trk_nNextToInnHits->at(i)).at(j));
@@ -326,6 +326,7 @@ void ChallengeFramework::clear() {
   m_jet_trk_ip3d_z0sig->clear();
   
   m_jet_trk_chi2->clear();
+  m_jet_trk_orig->clear();
   
   m_jet_trk_nInnHits->clear();
   m_jet_trk_nNextToInnHits->clear();
