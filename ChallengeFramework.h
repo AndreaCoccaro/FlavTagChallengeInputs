@@ -105,16 +105,6 @@ public :
   // Fixed size dimensions of array or collections stored in the TTree if any.
 
    // Declaration of leaf types
-   Int_t           runnb;
-   Int_t           eventnb;
-   Int_t           mcchan;
-   Double_t        mcwg;
-   Int_t           lbn;
-   Int_t           coreFlag;
-   Int_t           larError;
-   Int_t           tileError;
-   Int_t           nPV;
-   Double_t        avgmu;
    Double_t        PVx;
    Double_t        PVy;
    Double_t        PVz;
@@ -122,11 +112,6 @@ public :
    Double_t        truth_PVy;
    Double_t        truth_PVz;
    Float_t         truth_LeadJet_pt;
-   Int_t           njets;
-   Int_t           nbjets;
-   Int_t           nbjets_q;
-   Int_t           nbjets_HadI;
-   Int_t           nbjets_HadF;
    vector<float>   *jet_pt;
    vector<float>   *jet_eta;
    vector<float>   *jet_phi;
@@ -142,9 +127,6 @@ public :
    vector<float>   *jet_m;
    vector<int>     *jet_truthflav;
    vector<int>     *jet_nBHadr;
-   vector<int>     *jet_GhostL_q;
-   vector<int>     *jet_GhostL_HadI;
-   vector<int>     *jet_GhostL_HadF;
    vector<int>     *jet_LabDr_HadF;
    vector<int>     *jet_aliveAfterOR;
    vector<int>     *jet_truthMatch;
@@ -304,41 +286,8 @@ public :
    vector<int>     *jet_sv1_ntrk;
    vector<int>     *jet_ip3d_ntrk;
    vector<int>     *jet_jf_ntrk;
-   Bool_t          L1_MU4;
-   Bool_t          L1_MU6;
-   Bool_t          L1_MU10;
-   Bool_t          L1_MU11;
-   Bool_t          L1_MU15;
-   Bool_t          L1_MU20;
-   Bool_t          L1_MU4_J12;
-   Bool_t          L1_MU6_J20;
-   Bool_t          L1_MU6_J40;
-   Bool_t          L1_MU6_J75;
-   Bool_t          L1_J12;
-   Bool_t          L1_J15;
-   Bool_t          L1_J20;
-   Bool_t          L1_J25;
-   Bool_t          L1_J30;
-   Bool_t          L1_J40;
-   Bool_t          L1_J50;
-   Bool_t          L1_J75;
-   Bool_t          L1_J85;
-   Bool_t          L1_J100;
-   Bool_t          L1_J120;
-   Bool_t          L1_MBTS_1_1;
-   Bool_t          L1_RD0_FILLED;
 
    // List of branches
-   TBranch        *b_runnb;   //!
-   TBranch        *b_eventnb;   //!
-   TBranch        *b_mcchan;   //!
-   TBranch        *b_mcwg;   //!
-   TBranch        *b_lbn;   //!
-   TBranch        *b_coreFlag;   //!
-   TBranch        *b_larError;   //!
-   TBranch        *b_tileError;   //!
-   TBranch        *b_nPV;   //!
-   TBranch        *b_avgmu;   //!
    TBranch        *b_PVx;   //!
    TBranch        *b_PVy;   //!
    TBranch        *b_PVz;   //!
@@ -346,11 +295,6 @@ public :
    TBranch        *b_truth_PVy;   //!
    TBranch        *b_truth_PVz;   //!
    TBranch        *b_truth_LeadJet_pt;   //!
-   TBranch        *b_njets;   //!
-   TBranch        *b_nbjets;   //!
-   TBranch        *b_nbjets_q;   //!
-   TBranch        *b_nbjets_HadI;   //!
-   TBranch        *b_nbjets_HadF;   //!
    TBranch        *b_jet_pt;   //!
    TBranch        *b_jet_eta;   //!
    TBranch        *b_jet_phi;   //!
@@ -366,9 +310,6 @@ public :
    TBranch        *b_jet_m;   //!
    TBranch        *b_jet_truthflav;   //!
    TBranch        *b_jet_nBHadr;   //!
-   TBranch        *b_jet_GhostL_q;   //!
-   TBranch        *b_jet_GhostL_HadI;   //!
-   TBranch        *b_jet_GhostL_HadF;   //!
    TBranch        *b_jet_LabDr_HadF;   //!
    TBranch        *b_jet_aliveAfterOR;   //!
    TBranch        *b_jet_truthMatch;   //!
@@ -528,29 +469,6 @@ public :
    TBranch        *b_jet_sv1_ntrk;   //!
    TBranch        *b_jet_ip3d_ntrk;   //!
    TBranch        *b_jet_jf_ntrk;   //!
-   TBranch        *b_L1_MU4;   //!
-   TBranch        *b_L1_MU6;   //!
-   TBranch        *b_L1_MU10;   //!
-   TBranch        *b_L1_MU11;   //!
-   TBranch        *b_L1_MU15;   //!
-   TBranch        *b_L1_MU20;   //!
-   TBranch        *b_L1_MU4_J12;   //!
-   TBranch        *b_L1_MU6_J20;   //!
-   TBranch        *b_L1_MU6_J40;   //!
-   TBranch        *b_L1_MU6_J75;   //!
-   TBranch        *b_L1_J12;   //!
-   TBranch        *b_L1_J15;   //!
-   TBranch        *b_L1_J20;   //!
-   TBranch        *b_L1_J25;   //!
-   TBranch        *b_L1_J30;   //!
-   TBranch        *b_L1_J40;   //!
-   TBranch        *b_L1_J50;   //!
-   TBranch        *b_L1_J75;   //!
-   TBranch        *b_L1_J85;   //!
-   TBranch        *b_L1_J100;   //!
-   TBranch        *b_L1_J120;   //!
-   TBranch        *b_L1_MBTS_1_1;   //!
-   TBranch        *b_L1_RD0_FILLED;   //!
 
    ChallengeFramework(TTree * /*tree*/ =0) : fChain(0) { }
    virtual ~ChallengeFramework() { }
@@ -602,9 +520,6 @@ void ChallengeFramework::Init(TTree *tree)
    jet_m = 0;
    jet_truthflav = 0;
    jet_nBHadr = 0;
-   jet_GhostL_q = 0;
-   jet_GhostL_HadI = 0;
-   jet_GhostL_HadF = 0;
    jet_LabDr_HadF = 0;
    jet_aliveAfterOR = 0;
    jet_truthMatch = 0;
@@ -766,16 +681,6 @@ void ChallengeFramework::Init(TTree *tree)
    fChain = tree;
    fChain->SetMakeClass(1);
 
-   fChain->SetBranchAddress("runnb", &runnb, &b_runnb);
-   fChain->SetBranchAddress("eventnb", &eventnb, &b_eventnb);
-   fChain->SetBranchAddress("mcchan", &mcchan, &b_mcchan);
-   fChain->SetBranchAddress("mcwg", &mcwg, &b_mcwg);
-   fChain->SetBranchAddress("lbn", &lbn, &b_lbn);
-   fChain->SetBranchAddress("coreFlag", &coreFlag, &b_coreFlag);
-   fChain->SetBranchAddress("larError", &larError, &b_larError);
-   fChain->SetBranchAddress("tileError", &tileError, &b_tileError);
-   fChain->SetBranchAddress("nPV", &nPV, &b_nPV);
-   fChain->SetBranchAddress("avgmu", &avgmu, &b_avgmu);
    fChain->SetBranchAddress("PVx", &PVx, &b_PVx);
    fChain->SetBranchAddress("PVy", &PVy, &b_PVy);
    fChain->SetBranchAddress("PVz", &PVz, &b_PVz);
@@ -783,11 +688,6 @@ void ChallengeFramework::Init(TTree *tree)
    fChain->SetBranchAddress("truth_PVy", &truth_PVy, &b_truth_PVy);
    fChain->SetBranchAddress("truth_PVz", &truth_PVz, &b_truth_PVz);
    fChain->SetBranchAddress("truth_LeadJet_pt", &truth_LeadJet_pt, &b_truth_LeadJet_pt);
-   fChain->SetBranchAddress("njets", &njets, &b_njets);
-   fChain->SetBranchAddress("nbjets", &nbjets, &b_nbjets);
-   fChain->SetBranchAddress("nbjets_q", &nbjets_q, &b_nbjets_q);
-   fChain->SetBranchAddress("nbjets_HadI", &nbjets_HadI, &b_nbjets_HadI);
-   fChain->SetBranchAddress("nbjets_HadF", &nbjets_HadF, &b_nbjets_HadF);
    fChain->SetBranchAddress("jet_pt", &jet_pt, &b_jet_pt);
    fChain->SetBranchAddress("jet_eta", &jet_eta, &b_jet_eta);
    fChain->SetBranchAddress("jet_phi", &jet_phi, &b_jet_phi);
@@ -803,9 +703,6 @@ void ChallengeFramework::Init(TTree *tree)
    fChain->SetBranchAddress("jet_m", &jet_m, &b_jet_m);
    fChain->SetBranchAddress("jet_truthflav", &jet_truthflav, &b_jet_truthflav);
    fChain->SetBranchAddress("jet_nBHadr", &jet_nBHadr, &b_jet_nBHadr);
-   fChain->SetBranchAddress("jet_GhostL_q", &jet_GhostL_q, &b_jet_GhostL_q);
-   fChain->SetBranchAddress("jet_GhostL_HadI", &jet_GhostL_HadI, &b_jet_GhostL_HadI);
-   fChain->SetBranchAddress("jet_GhostL_HadF", &jet_GhostL_HadF, &b_jet_GhostL_HadF);
    fChain->SetBranchAddress("jet_LabDr_HadF", &jet_LabDr_HadF, &b_jet_LabDr_HadF);
    fChain->SetBranchAddress("jet_aliveAfterOR", &jet_aliveAfterOR, &b_jet_aliveAfterOR);
    fChain->SetBranchAddress("jet_truthMatch", &jet_truthMatch, &b_jet_truthMatch);
@@ -965,29 +862,6 @@ void ChallengeFramework::Init(TTree *tree)
    fChain->SetBranchAddress("jet_sv1_ntrk", &jet_sv1_ntrk, &b_jet_sv1_ntrk);
    fChain->SetBranchAddress("jet_ip3d_ntrk", &jet_ip3d_ntrk, &b_jet_ip3d_ntrk);
    fChain->SetBranchAddress("jet_jf_ntrk", &jet_jf_ntrk, &b_jet_jf_ntrk);
-   fChain->SetBranchAddress("L1_MU4", &L1_MU4, &b_L1_MU4);
-   fChain->SetBranchAddress("L1_MU6", &L1_MU6, &b_L1_MU6);
-   fChain->SetBranchAddress("L1_MU10", &L1_MU10, &b_L1_MU10);
-   fChain->SetBranchAddress("L1_MU11", &L1_MU11, &b_L1_MU11);
-   fChain->SetBranchAddress("L1_MU15", &L1_MU15, &b_L1_MU15);
-   fChain->SetBranchAddress("L1_MU20", &L1_MU20, &b_L1_MU20);
-   fChain->SetBranchAddress("L1_MU4_J12", &L1_MU4_J12, &b_L1_MU4_J12);
-   fChain->SetBranchAddress("L1_MU6_J20", &L1_MU6_J20, &b_L1_MU6_J20);
-   fChain->SetBranchAddress("L1_MU6_J40", &L1_MU6_J40, &b_L1_MU6_J40);
-   fChain->SetBranchAddress("L1_MU6_J75", &L1_MU6_J75, &b_L1_MU6_J75);
-   fChain->SetBranchAddress("L1_J12", &L1_J12, &b_L1_J12);
-   fChain->SetBranchAddress("L1_J15", &L1_J15, &b_L1_J15);
-   fChain->SetBranchAddress("L1_J20", &L1_J20, &b_L1_J20);
-   fChain->SetBranchAddress("L1_J25", &L1_J25, &b_L1_J25);
-   fChain->SetBranchAddress("L1_J30", &L1_J30, &b_L1_J30);
-   fChain->SetBranchAddress("L1_J40", &L1_J40, &b_L1_J40);
-   fChain->SetBranchAddress("L1_J50", &L1_J50, &b_L1_J50);
-   fChain->SetBranchAddress("L1_J75", &L1_J75, &b_L1_J75);
-   fChain->SetBranchAddress("L1_J85", &L1_J85, &b_L1_J85);
-   fChain->SetBranchAddress("L1_J100", &L1_J100, &b_L1_J100);
-   fChain->SetBranchAddress("L1_J120", &L1_J120, &b_L1_J120);
-   fChain->SetBranchAddress("L1_MBTS_1_1", &L1_MBTS_1_1, &b_L1_MBTS_1_1);
-   fChain->SetBranchAddress("L1_RD0_FILLED", &L1_RD0_FILLED, &b_L1_RD0_FILLED);
 }
 
 Bool_t ChallengeFramework::Notify()
