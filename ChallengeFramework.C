@@ -15,6 +15,7 @@ void ChallengeFramework::Begin(TTree * /*tree*/) {
   
   std::string line, str2;
   std::ifstream file("runChallengeFramework.C");
+  //std::ifstream file("runChallengeFramework_ZPrime.C");
   if (file) {
     while (getline(file,line)) {
       if (line.find("int counter")!=std::string::npos) {
@@ -26,7 +27,9 @@ void ChallengeFramework::Begin(TTree * /*tree*/) {
   }
   file.close();
 
+  //TString outputName = "inputChallenge_mc15_13TeV_410000_0"+str2+"_v1";
   TString outputName = "inputChallenge_mc15_13TeV_410000_0"+str2+"_v2";
+  //TString outputName = "inputChallenge_mc15_13TeV_301329_0"+str2+"_v1";
 
   output = new TFile(outputName+".root","RECREATE");
   std::cout << "output ROOT file " << outputName << std::endl;
@@ -212,9 +215,6 @@ Bool_t ChallengeFramework::Process(Long64_t entry) {
   if ((int)n_events%10000==0) 
     std::cout << "Processing " << n_events << "/" << n_entries << std::endl;
 
-  if (!jet_trk_pt->size())
-    std::cout << "WARNING - running on SLIMMED input files, some information will be missing" << std::endl;
-
   for (unsigned int i=0; i<jet_pt->size(); i++) {
 
     if(fabs(jet_eta->at(i))>2.5) continue;
@@ -267,9 +267,15 @@ Bool_t ChallengeFramework::Process(Long64_t entry) {
 
     m_jet_mv2c20 = jet_mv2c20->at(i);
 
-    m_jet_ip3d_ntrk = jet_ip3d_ntrk->at(i);
+    if(jet_ip3d_ntrk->size()) m_jet_ip3d_ntrk = jet_ip3d_ntrk->at(i);
+    else                      m_jet_ip3d_ntrk = -9;
 
     clear();
+
+    if(!jet_trk_pt->size()) {
+      tree->Fill();
+      continue;
+    }
 
     for (unsigned int j=0; j<(jet_trk_pt->at(i)).size(); j++) {
 
